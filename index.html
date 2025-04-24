@@ -21,6 +21,8 @@
                     <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                     <li class="nav-item"><a href="#data-viz" class="nav-link">Data Viz</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <!-- <button id="darkModeToggle">🌙 Dark Mode</button> -->
+
                 </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -835,6 +837,21 @@
             alert("Error: " + error.message);
         });
     });
+    const toggleBtn = document.getElementById("darkModeToggle");
+
+// Load saved theme 
+    // if (localStorage.getItem("theme") === "dark") {
+    //     document.body.classList.add("dark-mode");
+    //     toggleBtn.textContent = "☀️ Light Mode";
+    // }
+    // toggleBtn.addEventListener("click", () => {
+    //     document.body.classList.toggle("dark-mode");
+    //     const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+    //     localStorage.setItem("theme", theme);
+    //     toggleBtn.textContent = theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode";
+    // });
+
+
 
     </script>
 </body>

@@ -832,3 +832,38 @@ footer {
     overflow: hidden;
 }
 
+/* === DARK MODE ===
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode header,
+.dark-mode section,
+.dark-mode footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-mode .card,
+.dark-mode .project {
+    background-color: #222;
+    color: #fff;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #eee;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #444;
+    color: #fff;
+} */
