@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Data<span>Analyst</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#data-viz" class="nav-link">Data Viz</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Hi, I'm <span class="highlight">Sanya Ajibola</span></h1>
+                    <h2 class="subtitle">Data Analyst & <span class="typed-text" id="typed-text">Visualization Expert</span><span class="typed-cursor"></span></h2>
+                    <p>Transforming complex data into actionable insights that drive business decisions. I specialize in data analysis, visualization, and predictive modeling to help organizations make data-driven decisions.</p>
+                    <div>
+                        <a href="#projects" class="btn">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/ajibola-sanya-315421198/" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <img src="/image/DP.png" alt="Profile Picture" class="profile-pic">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Data-Driven Decision Maker</h3>
+                    <p>With over 5 years of experience in data analysis and business intelligence, I help organizations leverage their data assets to gain competitive advantage. My expertise spans across the entire data pipeline - from collection and cleaning to analysis, visualization, and insight generation.</p>
+                    <p>I've worked with companies across various industries including finance, healthcare, and e-commerce, delivering data solutions that increase efficiency, reduce costs, and drive growth.</p>
+                    <p>My goal is to translate complex data into clear, actionable insights that enable stakeholders at all levels to make informed decisions.</p>
+                    <a href="./image/CV - Data.pdf" download="" class="btn">Download Resume</a>
+                </div>
+                <div class="about-stats fade-in">
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Data Analysis</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Data Visualization</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>SQL & Database Management </span>
+                            <span> 70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Machine Learning</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Business Intelligence Tools</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">My Services</h2>
+            <div class="services-grid">
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Data Analysis</h3>
+                    <p>Transforming raw data into meaningful insights through statistical analysis, pattern recognition, and trend identification to support business decisions.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="service-title">Data Visualization</h3>
+                    <p>Creating interactive dashboards and visual representations that make complex data easy to understand and actionable for all stakeholders.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">Database Management</h3>
+                    <p>Designing, implementing, and optimizing database solutions to ensure data integrity, security, and accessibility for analytics purposes.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">Predictive Modeling</h3>
+                    <p>Developing statistical models and machine learning algorithms to forecast trends, predict outcomes, and provide actionable recommendations.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="service-title">Report Generation</h3>
+                    <p>Creating comprehensive reports and presentations that communicate data insights clearly to technical and non-technical audiences.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="service-title">Data Strategy Consulting</h3>
+                    <p>Advising organizations on best practices for data collection, management, and utilization to drive business growth and operational efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <div class="project-image">
+                            <img src="/image/Screenshot 2025-04-11 121036.png" alt="Retail Sales Analysis Dashboard">
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Retail Sales Analysis Dashboard</h3>
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Sales Analysis</span>
+                        </div>
+                        <p class="project-description">Developed a comprehensive dashboard to analyze sales trends and customer behavior for a retail chain, resulting in a 15% increase in targeted marketing ROI.</p>
+                        <a href="/projects/retail_sales_analysis.html" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="/image/Screenshot 2025-04-11 121036.png" alt="">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Customer Churn Prediction Model</h3>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Predictive Analytics</span>
+                        </div>
+                        <p class="project-description">Built a machine learning model to predict customer churn for a subscription-based service, enabling proactive retention strategies that reduced churn by 23%.</p>
+                        <a href="/projects/Customer_Churn_Prediction.html" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                       <img src="/image/Screenshot 2025-04-11 121036.png" alt="">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Geographic Market Analysis</h3>
+                        <div class="project-tags">
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Geospatial Analysis</span>
+                            <span class="tag">Market Research</span>
+                        </div>
+                        <p class="project-description">Conducted geospatial analysis to identify optimal locations for new store openings, leading to successful expansion in 5 new markets with above-average performance.</p>
+                        <a href="/projects/Geographic_Market_Analysis.html" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="/image/Screenshot 2025-04-11 121036.png" alt="Retail Sales Analysis Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Financial Performance Dashboard</h3>
+                        <div class="project-tags">
+                            <span class="tag">Excel</span>
+                            <span class="tag">Financial Analysis</span>
+                            <span class="tag">Data Modeling</span>
+                        </div>
+                        <p class="project-description">Created an interactive financial dashboard for executive leadership that streamlined reporting processes and saved 20+ hours of manual work monthly.</p>
+                        <a href="/projects/Financial_Performance_Dashboard.html" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="/image/Screenshot 2025-04-11 121036.png" alt="Retail Sales Analysis Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Customer Segmentation Analysis</h3>
+                        <div class="project-tags">
+                            <span class="tag">R</span>
+                            <span class="tag">Cluster Analysis</span>
+                            <span class="tag">Marketing Analytics</span>
+                        </div>
+                        <p class="project-description">Performed cluster analysis to segment customers based on purchasing behavior, enabling personalized marketing campaigns that increased conversion rates by 35%.</p>
+                        <a href="/projects/Customer_Segmentation_Analysis.html" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="/image/Screenshot 2025-04-11 121036.png" alt="Retail Sales Analysis Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pricing Optimization Model</h3>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Statistical Analysis</span>
+                            <span class="tag">Econometrics</span>
+                        </div>
+                        <p class="project-description">Developed a price elasticity model to optimize product pricing strategy, resulting in a 12% increase in profit margins while maintaining sales volume.</p>
+                        <a href="/projects/Pricing_Optimization_Model.html" class="project-link">
+                            View Project <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section class="section data-viz" id="data-viz">
+        <div class="container">
+            <h2 class="section-title fade-in">Data Visualization Samples</h2>
+            <div class="chart-container">
+                <div class="chart fade-in">
+                    <h3 class="chart-title">Monthly Revenue Analysis</h3>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="chart fade-in">
+                    <h3 class="chart-title">Customer Segmentation</h3>
+                    <canvas id="segmentationChart"></canvas>
+                </div>
+                <div class="chart fade-in">
+                    <h3 class="chart-title">Performance Metrics Comparison</h3>
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <div class="chart fade-in">
+                    <h3 class="chart-title">Product Category Distribution</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">What Clients Say</h2>
+            <div class="testimonial-slider fade-in">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        Working with this data analyst transformed how our company uses data. The insights provided helped us identify new opportunities and significantly improve our decision-making process.
+                    </p>
+                    <div class="testimonial-author">
+                        <h4 class="author-name">Jane Smith</h4>
+                        <p class="author-title">Marketing Director, ABC Company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Ekiti State, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>ebentheanalyst@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+234 906-159-8676</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Available Hours</h4>
+                            <p>Monday - Friday: 9AM - 5PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST"">
+                        <input type="hidden" name="access_key" value="dfedf3db-504f-4238-a946-4965209b6c77">
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Data Analyst</h3>
+                    <p>Transforming data into actionable insights to drive business growth and operational efficiency.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Data Analysis</a></li>
+                        <li><a href="#">Data Visualization</a></li>
+                        <li><a href="#">Predictive Modeling</a></li>
+                        <li><a href="#">Business Intelligence</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to my newsletter for data analysis tips and industry insights.</p>
+                    <form style="margin-top: 15px;">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email" class="form-control" style="margin-bottom: 10px;">
+                            <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sanya Ajibola. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Show/hide scroll to top button
+        const scrollTopButton = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopButton.classList.add('visible');
+            } else {
+                scrollTopButton.classList.remove('visible');
+            }
+        });
+
+        scrollTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        // Initial check and add scroll event listener
+        fadeInOnScroll();
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Header shadow on scroll
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'linear-gradient(135deg, rgba(7, 36, 72, 0.95), rgba(42, 82, 190, 0.95))';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'linear-gradient(135deg, var(--dark), var(--primary))';
+            }
+        });
+
+        // Typing animation for subtitle
+        const typedTextElement = document.getElementById('typed-text');
+        const phrases = ['Visualization Expert', 'Data Scientist', 'SQL Specialist', 'BI Developer'];
+        let currentPhraseIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let typeDelay = 100;
+
+        function typeEffect() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            
+            if (isDeleting) {
+                // Remove characters
+                typedTextElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+                typeDelay = 50;
+            } else {
+                // Add characters
+                typedTextElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+                typeDelay = 150;
+            }
+            
+            // If we've typed the full phrase
+            if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                // Pause at the end of the phrase
+                isDeleting = true;
+                typeDelay = 1500;
+            }
+            
+            // If we've deleted the full phrase
+            if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                typeDelay = 500;
+            }
+            
+            setTimeout(typeEffect, typeDelay);
+        }
+
+        // Start the typing animation
+        setTimeout(typeEffect, 1000);
+
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart (Line Chart)
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Revenue 2024',
+                        data: [12000, 19000, 15000, 23000, 20000, 25000, 22000, 30000, 28000, 25000, 32000, 38000],
+                        borderColor: '#2a52be',
+                        backgroundColor: 'rgba(42, 82, 190, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }, {
+                        label: 'Revenue 2023',
+                        data: [10000, 15000, 12000, 18000, 16000, 20000, 17000, 25000, 22000, 20000, 25000, 30000],
+                        borderColor: '#2ec4b6',
+                        backgroundColor: 'rgba(46, 196, 182, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Segmentation Chart (Bar Chart)
+            const segmentationCtx = document.getElementById('segmentationChart').getContext('2d');
+            const segmentationChart = new Chart(segmentationCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Segment A', 'Segment B', 'Segment C', 'Segment D', 'Segment E'],
+                    datasets: [{
+                        label: 'Customer Count',
+                        data: [450, 320, 580, 250, 400],
+                        backgroundColor: [
+                            'rgba(42, 82, 190, 0.7)',
+                            'rgba(46, 196, 182, 0.7)',
+                            'rgba(255, 159, 28, 0.7)',
+                            'rgba(7, 36, 72, 0.7)',
+                            'rgba(126, 192, 238, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(42, 82, 190, 1)',
+                            'rgba(46, 196, 182, 1)',
+                            'rgba(255, 159, 28, 1)',
+                            'rgba(7, 36, 72, 1)',
+                            'rgba(126, 192, 238, 1)'
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Average Spend ($)',
+                        data: [120, 250, 80, 350, 180],
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: 'rgba(0, 0, 0, 0.3)',
+                        borderWidth: 1,
+                        type: 'line',
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Customer Count'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Average Spend ($)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Radar Chart
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            const radarChart = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Analysis', 'Visualization', 'SQL', 'Python', 'Machine Learning', 'Reporting'],
+                    datasets: [{
+                        label: 'Current Performance',
+                        data: [90, 85, 80, 75, 70, 85],
+                        backgroundColor: 'rgba(42, 82, 190, 0.2)',
+                        borderColor: 'rgba(42, 82, 190, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(42, 82, 190, 1)'
+                    }, {
+                        label: 'Benchmark',
+                        data: [75, 70, 65, 60, 65, 70],
+                        backgroundColor: 'rgba(46, 196, 182, 0.2)',
+                        borderColor: 'rgba(46, 196, 182, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(46, 196, 182, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Pie Chart
+            const pieCtx = document.getElementById('pieChart').getContext('2d');
+            const pieChart = new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Electronics', 'Clothing', 'Home & Garden', 'Sports', 'Books', 'Others'],
+                    datasets: [{
+                        data: [30, 22, 18, 15, 10, 5],
+                        backgroundColor: [
+                            'rgba(42, 82, 190, 0.7)',
+                            'rgba(46, 196, 182, 0.7)',
+                            'rgba(255, 159, 28, 0.7)',
+                            'rgba(7, 36, 72, 0.7)',
+                            'rgba(126, 192, 238, 0.7)',
+                            'rgba(200, 200, 200, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(42, 82, 190, 1)',
+                            'rgba(46, 196, 182, 1)',
+                            'rgba(255, 159, 28, 1)',
+                            'rgba(7, 36, 72, 1)',
+                            'rgba(126, 192, 238, 1)',
+                            'rgba(200, 200, 200, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const form = new FormData(this);
+        fetch(this.action, {
+            method: 'POST',
+            body: form,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Message sent successfully!");
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        })
+        .catch(error => {
+            alert("Error: " + error.message);
+        });
+    });
+
+    </script>
+</body>
+</html>

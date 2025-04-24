@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Retail Sales Analysis Dashboard | Data Analyst Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        :root {
+            --primary: #2a52be;
+            --secondary: #2ec4b6;
+            --dark: #072448;
+            --light: #f8f9fa;
+            --accent: #ff9f1c;
+            --text: #333333;
+            --background: #ffffff;
+            --container: #f5f7fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Project Detail Styles */
+        .project-header {
+            padding: 150px 0 80px;
+            background: var(--light);
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+        }
+
+        .meta-icon {
+            color: var(--primary);
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            padding: 6px 16px;
+            background-color: rgba(42, 82, 190, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .project-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .overview-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .overview-image {
+            text-align: center;
+        }
+
+        .overview-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .challenge-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .challenges, .solutions {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .challenges h3, .solutions h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .challenges h3::after, .solutions h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .challenge-list, .solution-list {
+            list-style: none;
+        }
+
+        .challenge-list li, .solution-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .challenge-list li::before {
+            content: '\f071';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #ff9f1c;
+        }
+
+        .solution-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #2ec4b6;
+        }
+
+        .chart-section {
+            background-color: var(--light);
+            padding: 80px 0;
+        }
+
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .chart {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .results {
+            margin-bottom: 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .result-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .result-text {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .process-steps {
+            counter-reset: step-counter;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-content {
+            padding-bottom: 30px;
+        }
+
+        .step:not(:last-child) .step-content::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 25px;
+            width: 2px;
+            height: calc(100% - 50px);
+            background-color: rgba(42, 82, 190, 0.2);
+            z-index: 1;
+        }
+
+        .step-content h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .technologies {
+            margin-bottom: 60px;
+        }
+
+        .technologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .technology {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .technology:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .next-prev-projects {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .prev-project, .next-project {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .prev-project:hover, .next-project:hover {
+            color: var(--primary);
+        }
+
+        .prev-project i, .next-project i {
+            font-size: 1.2rem;
+        }
+
+        .prev-project i {
+            margin-right: 10px;
+        }
+
+        .next-project i {
+            margin-left: 10px;
+        }
+
+        .back-to-portfolio {
+            display: inline-block;
+            margin-top: 60px;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .project-overview,
+            .challenge-solution {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--dark);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="/index.html" class="logo">Data<span>Analyst</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/index.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="index.html#data-viz" class="nav-link">Data Viz</a></li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <div class="container">
+            <h1 class="project-title">Financial Performance Dashboard</h1>
+            <div class="project-meta">
+                <div class="meta-item">
+                    <i class="fas fa-calendar meta-icon"></i>
+                    <span>Completed: March 2024</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-user meta-icon"></i>
+                    <span>Client: ABC Retail Inc.</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock meta-icon"></i>
+                    <span>Duration: 8 weeks</span>
+                </div>
+            </div>
+            <div class="project-tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">Dashboard Development</span>
+                <span class="tag">Sales Analytics</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="project-overview">
+                <div class="overview-text">
+                    <p>ABC Retail, a multi-location retail chain with over 50 stores nationwide, was struggling to gain insights from their sales data. They had accumulated large volumes of transaction data but lacked the tools to transform this data into actionable business intelligence.</p>
+                    <p>I was tasked with developing a comprehensive sales analysis dashboard that would enable the executive team and store managers to monitor performance metrics, identify trends, and make data-driven decisions to improve sales performance and inventory management.</p>
+                    <p>The project involved data extraction from multiple sources, cleaning and transformation of the data, and the creation of an interactive Power BI dashboard with drill-down capabilities that allowed users to analyze data at different levels of granularity.</p>
+                </div>
+                <div class="overview-image">
+                    <img src="/image/Screenshot 2025-04-11 121036.png" alt="Dashboard Preview">
+                </div>
+            </div>
+            
+            <div class="challenge-solution">
+                <div class="challenges">
+                    <h3>Challenges</h3>
+                    <ul class="challenge-list">
+                        <li>Data was stored in multiple disparate systems with inconsistent formats</li>
+                        <li>Historical data quality issues required extensive cleaning</li>
+                        <li>Different stakeholders needed different levels of detail and metrics</li>
+                        <li>Dashboard needed to be accessible and easy to use for non-technical users</li>
+                        <li>Real-time performance metrics were required for timely decision making</li>
+                    </ul>
+                </div>
+                <div class="solutions">
+                    <h3>Solutions</h3>
+                    <ul class="solution-list">
+                        <li>Implemented ETL processes to extract and consolidate data from multiple sources</li>
+                        <li>Created data cleaning scripts in Python to handle data inconsistencies</li>
+                        <li>Designed a multi-level dashboard with role-based views and drill-down functionality</li>
+                        <li>Used intuitive visualizations and clear labeling for non-technical users</li>
+                        <li>Set up automated data refresh schedules to ensure timely insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process and Methodology -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Process & Methodology</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Requirements Gathering & Analysis</h3>
+                        <p>Conducted interviews with key stakeholders to understand business objectives, KPIs, and specific reporting needs. Mapped out data sources and assessed data quality and availability.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Data Extraction & Preparation</h3>
+                        <p>Wrote SQL queries to extract relevant data from the company's transaction database, CRM system, and inventory management system. Performed data cleaning and transformation using Python and SQL to address inconsistencies and create a unified dataset.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Data Modeling</h3>
+                        <p>Designed a star schema data model in Power BI with fact and dimension tables optimized for analytical reporting. Created calculated measures and KPIs using DAX formulas to enable complex analysis.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Dashboard Development</h3>
+                        <p>Developed a multi-page Power BI dashboard with separate views for executive summary, store performance comparison, product analysis, and customer insights. Implemented interactive filtering, drill-down capabilities, and conditional formatting for enhanced usability.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Testing & Refinement</h3>
+                        <p>Conducted user acceptance testing with key stakeholders. Refined the dashboard based on feedback, optimizing visualizations and adding additional metrics as requested.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Deployment & Knowledge Transfer</h3>
+                        <p>Deployed the final dashboard to Power BI Service for organization-wide access. Created documentation and conducted training sessions for users to ensure effective utilization of the dashboard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualizations -->
+    <section class="chart-section">
+        <div class="container">
+            <h2 class="section-title">Key Visualizations</h2>
+            <div class="chart-container">
+                <div class="chart">
+                    <h3 class="chart-title">Sales Performance by Region</h3>
+                    <canvas id="regionChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3 class="chart-title">Product Category Sales Trend</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Results & Impact</h2>
+            <div class="results">
+                <p>The implementation of the retail sales analysis dashboard had significant positive impacts on ABC Retail's operations and bottom line. The data-driven insights enabled more strategic decision-making at all levels of the organization.</p>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-number">15%</div>
+                        <div class="result-text">Increase in targeted marketing ROI</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">23%</div>
+                        <div class="result-text">Reduction in excess inventory</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">8%</div>
+                        <div class="result-text">Improvement in overall sales</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">40+</div>
+                        <div class="result-text">Hours saved monthly on reporting</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Technologies Used</h2>
+            <div class="technologies">
+                <div class="technologies-grid">
+                    <div class="technology">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="tech-name">SQL Server</div>
+                    </div>
+                    <div class="technology">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="tech-name">Power BI</div>
+                    </div>
+                    <div class="technology">
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="tech-name">Python</div>
+                    </div>
+                    <div class="technology">
+                        <div class="tech-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="tech-name">DAX</div>
+                    </div>
+                    <div class="technology">
+                        <div class="tech-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="tech-name">Power Query</div>
+                    </div>
+                    <div class="technology">
+                        <div class="tech-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="tech-name">Azure</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Conclusion</h2>
+            <p>This project demonstrates how effective data visualization and analytics can transform raw business data into actionable insights. By creating an intuitive, comprehensive dashboard, ABC Retail was able to leverage their data assets to drive tangible business improvements.</p>
+            <p>The success of this project led to further collaboration with the client on additional data initiatives, including customer segmentation analysis and predictive sales forecasting models.</p>
+            
+            <div class="next-prev-projects">
+                <a href="/projects/Geographic_Market_Analysis.html" class="prev-project">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous Project
+                </a>
+                <a href="/projects/" class="next-project">
+                    Next Project
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="/index.html" class="back-to-portfolio">
+                    <i class="fas fa-th-large" style="margin-right: 10px;"></i>
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Data Analyst</h3>
+                    <p>Transforming data into actionable insights to drive business growth and operational efficiency.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/index.html#home">Home</a></li>
+                        <li><a href="/index.html#about">About</a></li>
+                        <li><a href="/index.html#services">Services</a></li>
+                        <li><a href="/index.html#projects">Projects</a></li>
+                        <li><a href="/index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="/index.html#services">Data Analysis</a></li>
+                        <li><a href="/index.html#services">Data Visualization</a></li>
+                        <li><a href="/index.html#services">Predictive Modeling</a></li>
+                        <li><a href="/index.html#services">Business Intelligence</a></li>
+                        <li><a href="/index.html#services">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: ebentheanalyst@gmail.com</p>
+                    <p>Phone: +234 9061598676</p>
+                    <p>Location: Ekiti, Nigeria</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sanya Ajibola. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Initialize Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart (Line Chart)
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Revenue 2024',
+                        data: [12000, 19000, 15000, 23000, 20000, 25000, 22000, 30000, 28000, 25000, 32000, 38000],
+                        borderColor: '#2a52be',
+                        backgroundColor: 'rgba(42, 82, 190, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }, {
+                        label: 'Revenue 2023',
+                        data: [10000, 15000, 12000, 18000, 16000, 20000, 17000, 25000, 22000, 20000, 25000, 30000],
+                        borderColor: '#2ec4b6',
+                        backgroundColor: 'rgba(46, 196, 182, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Segmentation Chart (Bar Chart)
+            const segmentationCtx = document.getElementById('segmentationChart').getContext('2d');
+            const segmentationChart = new Chart(segmentationCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Segment A', 'Segment B', 'Segment C', 'Segment D', 'Segment E'],
+                    datasets: [{
+                        label: 'Customer Count',
+                        data: [450, 320, 580, 250, 400],
+                        backgroundColor: [
+                            'rgba(42, 82, 190, 0.7)',
+                            'rgba(46, 196, 182, 0.7)',
+                            'rgba(255, 159, 28, 0.7)',
+                            'rgba(7, 36, 72, 0.7)',
+                            'rgba(126, 192, 238, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(42, 82, 190, 1)',
+                            'rgba(46, 196, 182, 1)',
+                            'rgba(255, 159, 28, 1)',
+                            'rgba(7, 36, 72, 1)',
+                            'rgba(126, 192, 238, 1)'
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Average Spend ($)',
+                        data: [120, 250, 80, 350, 180],
+                        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: 'rgba(0, 0, 0, 0.3)',
+                        borderWidth: 1,
+                        type: 'line',
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Customer Count'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Average Spend ($)'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Radar Chart
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            const radarChart = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Analysis', 'Visualization', 'SQL', 'Python', 'Machine Learning', 'Reporting'],
+                    datasets: [{
+                        label: 'Current Performance',
+                        data: [90, 85, 80, 75, 70, 85],
+                        backgroundColor: 'rgba(42, 82, 190, 0.2)',
+                        borderColor: 'rgba(42, 82, 190, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(42, 82, 190, 1)'
+                    }, {
+                        label: 'Benchmark',
+                        data: [75, 70, 65, 60, 65, 70],
+                        backgroundColor: 'rgba(46, 196, 182, 0.2)',
+                        borderColor: 'rgba(46, 196, 182, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(46, 196, 182, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Pie Chart
+            const pieCtx = document.getElementById('pieChart').getContext('2d');
+            const pieChart = new Chart(pieCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Electronics', 'Clothing', 'Home & Garden', 'Sports', 'Books', 'Others'],
+                    datasets: [{
+                        data: [30, 22, 18, 15, 10, 5],
+                        backgroundColor: [
+                            'rgba(42, 82, 190, 0.7)',
+                            'rgba(46, 196, 182, 0.7)',
+                            'rgba(255, 159, 28, 0.7)',
+                            'rgba(7, 36, 72, 0.7)',
+                            'rgba(126, 192, 238, 0.7)',
+                            'rgba(200, 200, 200, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(42, 82, 190, 1)',
+                            'rgba(46, 196, 182, 1)',
+                            'rgba(255, 159, 28, 1)',
+                            'rgba(7, 36, 72, 1)',
+                            'rgba(126, 192, 238, 1)',
+                            'rgba(200, 200, 200, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically handle the form submission with AJAX
+            // For now, we'll just show an alert
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
